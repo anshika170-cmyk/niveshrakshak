@@ -10,6 +10,10 @@ const require = createRequire(import.meta.url);
 const pdf = require("pdf-parse/lib/pdf-parse.js");
 
 const app = express();
+
+// Render runs the app behind a proxy.
+app.set("trust proxy", 1);
+
 const PORT = Number(process.env.PORT || 5000);
 const allowedOrigin = process.env.CLIENT_ORIGIN || "http://localhost:5173";
 
